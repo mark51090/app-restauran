@@ -3,7 +3,7 @@
   <head>
     <base href= "<?php echo $this->config->item('base_url'); ?>">
     <meta charset="utf-8">
-    <title>Login &middot; Informacion Académica</title>
+    <title>Login &middot; Sistema Restaurante logo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="VOG" content="">
@@ -72,7 +72,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Sistema de Información Académica</a>
+          <a class="brand" href="#">Sistema Restaurante logo</a>
 
           <!--/.nav-collapse -->
         </div>

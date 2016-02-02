@@ -12,11 +12,9 @@ class Usuarios_model extends CI_Model
     function buscar_en_BD($usuario, $password)
     {
         $this->db->select('*');
-        $this->db->from('perfil');
-        $this->db->join('academico','academico.noPersonal = perfil.Academico_noPersonal');
-        $this->db->join('categoria','academico.categoria = categoria.idCategoria');
-        $this->db->where('Academico_noPersonal', $usuario);
-        $this->db->where('password', $password);
+        $this->db->from('usuarios');
+        $this->db->where('id_usuario', $usuario);
+        $this->db->where('contrasenia', $password);
         $query = $this->db->get();
 
         if ($query->num_rows() == 0)

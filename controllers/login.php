@@ -13,7 +13,7 @@ class Login extends CI_Controller {
         $this->load->library('form_validation'); 
         /* ------------------ */    
         $this->load->library('grocery_CRUD');  
-        $this->noPersonal = $this->session->userdata('noPersonal');
+        $this->noPersonal = $this->session->userdata('id_usuario');
     }           
     
     function index()
@@ -47,14 +47,12 @@ class Login extends CI_Controller {
                     $this->load->view('login_view', $datos_plantilla);
                 }else
                 {
-                    if($row->perfil != NULL)
+                    //if($row->perfil != NULL)
                     {
                         $newdata = array(                                     
-                                         'noPersonal'=> $row->noPersonal,
-                                         'perfil'    => $row->perfil,
-                                         'informe'  => $row->informe,
-                                         'nombre'    => $row->nombre,
-                                         'administrar_usuarios' => $row->administrar_usuarios,
+                                         
+                                         'nombre'    => $row->nombre_usuario,
+                                         //'administrar_usuarios' => $row->administrar_usuarios,
                                          'logged_in' => TRUE
                                         );  
                         $this->session->set_userdata($newdata);
