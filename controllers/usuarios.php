@@ -33,8 +33,8 @@ class Usuarios extends CI_Controller {
 
     function _example_output($output = null)
     {
-        $output->titulo_tabla = "Registro de Libros";
-        $output->barra_navegacion = " <li><a href='principal'> Menú principal </a></li>  |  <li> <a href='alumno'> Menú CVU </a></li>";
+        $output->titulo = "Registro de Libros";
+        //$output->barra_navegacion = " <li><a href='principal'> Menú principal </a></li>  |  <li> <a href='alumno'> Menú CVU </a></li>";
         $datos_plantilla['contenido'] =  $this->load->view('output_view', $output, TRUE);
         $this->load->view('plantilla_admin', $datos_plantilla);
     }

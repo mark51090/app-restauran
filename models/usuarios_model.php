@@ -26,63 +26,21 @@ class Usuarios_model extends CI_Model
         }
      }
 
-     function listar_academicos()
+     function cambiar_contrasenia($usuario, $password)
     {
-        $this->db->select('*');
-        $this->db->from('academico');
-        $this->db->join('categoria','academico.categoria = categoria.idCategoria');
-        $this->db->order_by('academico.nombre');
+        $this->db->select('contrasenia');
+        $this->db->from('usuarios');
+        $this->db->where('id_usuario', $usuario);
+        $this->db->where('contrasenia', $password);
         $query = $this->db->get();
-        return $query->result_array();
-     }
 
-      function contar_academicos_grado($grado)
-    {
-        $this->db->select('*');
-        $this->db->from('academico');
-        $this->db->where('grado', $grado);
-        $this->db->where('categoria <>', 'No aplica');
-        return $this->db->count_all_results();
-     }
-
-     function contar_investigadores_tc()
-    {
-        $this->db->select('*');
-        $this->db->from('academico');
-        $this->db->join('categoria','academico.categoria = categoria.idCategoria');
-        $this->db->like('categoria.nombre_categoria','CARRERA'); //busco los ACADEMICOS DE CARRERA (investigadores)
-        $this->db->like('categoria.nombre_categoria','T.C'); //que sean de TIEMPO COMPLETO
-        return $this->db->count_all_results();
-     }
-
-     function contar_investigadores_mt()
-    {
-        $this->db->select('*');
-        $this->db->from('academico');
-        $this->db->join('categoria','academico.categoria = categoria.idCategoria');
-        $this->db->like('categoria.nombre_categoria','CARRERA'); //busco los ACADEMICOS DE CARRERA (investigadores)
-        $this->db->like('categoria.nombre_categoria','M.T'); //que sean de MEDIO TIEMPO
-        return $this->db->count_all_results();
-     }
-
-     function contar_tecnicos()
-    {
-        $this->db->select('*');
-        $this->db->from('academico');
-        $this->db->join('categoria','academico.categoria = categoria.idCategoria');
-        $this->db->like('categoria.nombre_categoria','TECNICO'); //busco los TECNICOS ACADEMICOS
-        //$this->db->like('categoria.nombre','M.T'); //que sean de TIEMPO COMPLETO
-        return $this->db->count_all_results();
-     }
-
-     function contar_por_depto($depto)
-    {
-        $this->db->select('*');
-        $this->db->from('academico');
-        $this->db->join('departamento','academico.departamento = departamento.idDepartamento');
-        $this->db->where('departamento.nombre_depto',$depto); //Busco a los investigadores por departamento
-        return $this->db->count_all_results();
-     }
-
+        if ($query->num_rows() == 0)
+        {
+            return FALSE;
+        }else
+        {
+            return $query->row();
+        }
+    }
 }
 

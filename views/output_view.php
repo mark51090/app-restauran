@@ -15,7 +15,7 @@ foreach($css_files as $file): ?>
 <?php echo validation_errors(); ?>
 
 <div id= "titulo" class="container-fluid">
-        <h4><a><?php echo $titulo_tabla; ?></a></h4>
+        <h4><a><?php echo $titulo; ?></a></h4>
 </div>
 
     <div>
