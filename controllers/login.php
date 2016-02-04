@@ -47,17 +47,28 @@ class Login extends CI_Controller {
                     $this->load->view('login_view', $datos_plantilla);
                 }else
                 {
-                    //if($row->perfil != NULL)
+                    if($row->tipo_usuario == 'Administrador')
                     {
                         $newdata = array(                                     
-                                         
+                                         'id_usuario'=>$row->id_usuario,
                                          'nombre'    => $row->nombre_usuario,
-                                         //'administrar_usuarios' => $row->administrar_usuarios,
+                                         'tipo_usuario' => $row->tipo_usuario,
                                          'logged_in' => TRUE
                                         );  
                         $this->session->set_userdata($newdata);
 
-                        redirect('academico/control');
+                        redirect('administrador');
+
+                    }else if ($row->tipo_usuario == 'Caja'){
+                        $newdata = array(                                     
+                                         'id_usuario'=>$row->id_usuario,
+                                         'nombre'    => $row->nombre_usuario,
+                                         'tipo_usuario' => $row->tipo_usuario,
+                                         'logged_in' => TRUE
+                                        );  
+                        $this->session->set_userdata($newdata);
+
+                        redirect('caja');
 
                     }
                 }

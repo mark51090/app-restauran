@@ -1,18 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
 <?php
 foreach($css_files as $file): ?>
-	<link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
+  <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
 <?php endforeach; ?>
 <?php foreach($js_files as $file): ?>
-	<script src="<?php echo $file; ?>"></script>
+  <script src="<?php echo $file; ?>"></script>
 <?php endforeach; ?>
-<style type='text/css'>
 
-</style>
 </head>
 
 <?php echo validation_errors(); ?>
 
-<?php echo $titulo_tabla; ?>
+<div id= "titulo" class="container-fluid">
+        <h4><a><?php echo $titulo_tabla; ?></a></h4>
+</div>
+
     <div>
-		<?php echo $output; ?>
+    <?php echo $output; ?>
     </div>
+
+</html>

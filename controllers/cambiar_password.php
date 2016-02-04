@@ -11,7 +11,7 @@ class Cambiar_password extends CI_Controller {
         $this->load->library('encrypt');
         $this->load->library('form_validation');
         /* ------------------ */
-        $this->noPersonal = $this->session->userdata('noPersonal');
+        $this->id_usuario = $this->session->userdata('id_usuario');
     }
 
     function index()
@@ -27,9 +27,9 @@ class Cambiar_password extends CI_Controller {
                 {
                     extract($_POST);
                     $nuevo_pass = array(
-                                'password' => $this->encrypt->sha1($password)
+                                'contrasenia' => $this->encrypt->sha1($password)
                                );
-                    $this->db->where('Academico_noPersonal', $this->noPersonal);
+                    $this->db->where('id_usuario', $this->id_usuario);
                     $this->db->update('perfil', $nuevo_pass);
 
                     $datos['mensaje'] = "La contraseña ha sido cambiada con éxito.";
