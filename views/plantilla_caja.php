@@ -113,6 +113,7 @@ $(document).ready(function()
          <div class="modal-body">
              <form action="cambiar_password" method="POST">
                  <!--label for="exampleInputEmail1">Nueva contraseña</label-->
+                 <input type="password" class="form-control" name="passactual" placeholder="Contraseña actual"> </br>
                  <input type="password" class="form-control" name="password" placeholder="Nueva contraseña"> </br>
                  <input type="password" class="form-control" name="passconf" placeholder="Confirme nueva contraseña"></br>
              <div class="modal-footer">
